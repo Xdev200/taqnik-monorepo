@@ -1,0 +1,14 @@
+{
+  "name": "taqnik-monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "install": "npm install",
+    "start:taqnik": "cd apps/taqnik && npm run start",
+    "start:build-it": "cd apps/build-it && npm run start"
+  }
+}
