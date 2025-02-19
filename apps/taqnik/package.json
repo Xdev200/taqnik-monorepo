@@ -10,7 +10,8 @@
     "web": "expo start --web",
     "test": "jest --watchAll",
     "lint": "expo lint",
-    "build:web": "cross-env EXPO_WEB_AUTO_SET_KEYS=false expo export -p web",
+    "prebuild": "node scripts/create-vercel-json.js",
+    "build:web": "cross-env EXPO_WEB_AUTO_SET_KEYS=false expo export -p web && npm run prebuild",
     "serve:web": "npx serve dist",
     "build:android": "eas build --platform android",
     "build:ios": "eas build --platform ios",
@@ -19,7 +20,6 @@
     "submit:android": "eas submit --platform android",
     "submit:ios": "eas submit --platform ios",
     "update": "eas update",
-    "prebuild": "expo prebuild",
     "clean": "rm -rf dist .expo web-build"
   },
   "jest": {
