@@ -1,6 +1,4 @@
 {
-    "buildCommand": "npm run build:expo",
-    "outputDirectory": "web-build",
     "rewrites": [
       { "source": "/(.*)", "destination": "/index.html" }
     ]
