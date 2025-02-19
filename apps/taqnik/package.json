@@ -9,7 +9,18 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "test": "jest --watchAll",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "build:web": "expo export -p web",
+    "serve:web": "npx serve dist",
+    "build:android": "eas build --platform android",
+    "build:ios": "eas build --platform ios",
+    "build:preview": "eas build --profile preview",
+    "build:production": "eas build --profile production",
+    "submit:android": "eas submit --platform android",
+    "submit:ios": "eas submit --platform ios",
+    "update": "eas update",
+    "prebuild": "expo prebuild",
+    "clean": "rm -rf dist .expo web-build"
   },
   "jest": {
     "preset": "jest-expo"
