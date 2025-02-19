@@ -1,32 +1,14 @@
+// scripts/create-vercel-json.js
 const fs = require('fs');
 const path = require('path');
 
 const vercelConfig = {
-  "version": 2,
-  "builds": [
-    {
-      "src": "dist/**",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "dist/$1"
-    },
-    {
-      "src": "/build-it",
-      "dest": "dist/index.html"
-    }
+
+  rewrites: [
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 };
 
-const vercelConfigPath = path.join(__dirname, '../dist/vercel.json');
-
-try {
-  fs.writeFileSync(vercelConfigPath, JSON.stringify(vercelConfig, null, 2));
-  console.log('Successfully created vercel.json');
-} catch (error) {
-  console.error('Error creating vercel.json:', error);
-  process.exit(1);
-}
+const filePath = path.join(__dirname, '..', 'vercel.json');
+fs.writeFileSync(filePath, JSON.stringify(vercelConfig, null, 2));
+console.log("vercel.json file created successfully at", filePath);
